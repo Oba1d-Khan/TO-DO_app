@@ -3,21 +3,20 @@ import { useState } from "react";
 import "./styles.css";
 
 const App = () => {
-  const [newItem, setNewItem] = useState(""); // This State is used to store the input typed in text field.
+  const [newItem, setNewItem] = useState("");
 
   const handleInputChange = (e) => {
-    setNewItem(e.target.value); // where;  e = event,target = the property(input field) on which the event occured , value = represent the current value of input field
+    setNewItem(e.target.value);
   };
-  const [todos, setTodos] = useState([]); // This state is used to store a list of todo items.
+  const [todos, setTodos] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setTodos((currentTodos) => {
-      // When we pass a callback function to the setter function, React automatically passes the current value of the state variable to the callback function as a parameter. This ensures that you are working with the most up-to-date value of the state variable
       return [
-        ...currentTodos, //, and later we assign the already stored values of array using spread operator !
-        { id: crypto.randomUUID(), title: newItem, completed: false }, // randomUUID() : random universally unique identifier, this function ensure every item has unique id.
+        ...currentTodos,
+        { id: crypto.randomUUID(), title: newItem, completed: false },
       ];
     });
     setNewItem("");
@@ -94,7 +93,6 @@ const App = () => {
           {todos.map((todo) => {
             return (
               <li key={todo.id}>
-                {/* It will give unique id to every li element added */}
                 <label>
                   <input
                     type="checkbox"
@@ -127,6 +125,16 @@ const App = () => {
             Delete All
           </button>
         )}
+      </div>
+      <div
+        className="app-footer
+      "
+      >
+        <p>"Task Conquer" 🚀 - Your Personal Productivity Powerhouse!</p>
+        <p>
+          Made with ❤️ by{" "}
+          <a href="https://github.com/Oba1d-Khan">Obaid Khan </a>
+        </p>
       </div>
     </>
   );

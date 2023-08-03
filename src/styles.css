@@ -11,13 +11,14 @@
     left: 100px;
     top: 0;
     color: rgb(9, 1, 1);
+    font-size: 40px;
 
 }
 
 body {
     background-image: url(../src/assets/pattern-randomized.svg);
     color: hsl(0, 0%, 100%);
-    max-width: 400px;
+    max-width: 500px;
     padding: 1rem;
     margin: 100px auto;
 }
@@ -26,6 +27,11 @@ body {
     padding: 20px;
     background-color: rgb(36, 30, 30);
     border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.form-container:hover {
+    transform: scale(1.1);
 }
 
 .add-item-form {
@@ -43,9 +49,19 @@ body {
 
 
 .form-input label {
-    font-size: 22px;
+    font-size: 30px;
     margin: auto;
     padding-bottom: 20px;
+}
+
+#item {
+    padding: 10px;
+    font-size: 15px;
+}
+
+#item:hover {
+    border-color: hsl(200, 100%, 50%);
+    box-shadow: 0 8px 5px hsl(200, 100%, 50%, 0.2);
 }
 
 #item::placeholder {
@@ -57,11 +73,12 @@ body {
     background: hsl(200, 100%, 50%, 0.1);
     border: 1px solid hsl(200, 100%, 50%);
     color: hsl(200, 100%, 50%);
-    padding: 0.25em 0.5em;
+    padding: 0.5em 0.5em;
     border-radius: 0.50em;
     margin: 5px 20px;
     cursor: pointer;
     outline: none;
+    font-size: 1rem;
 }
 
 .btn:hover,
@@ -171,4 +188,37 @@ body {
 
 .list li:has(input:checked) label:hover::before {
     background: hsl(200, 100%, 30%);
+}
+
+.app-footer {
+    background-color: rgb(33, 28, 28);
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    animation: pulse 8s;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.app-footer p {
+    margin: 0;
+    color: #888;
+}
+
+.app-footer a {
+    text-decoration: none;
+    color: hsl(200, 100%, 40%);
 }
